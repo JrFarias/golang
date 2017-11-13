@@ -1,0 +1,15 @@
+13/11/2017 16:01:53 - https://www.alura.com.br - online: true
+13/11/2017 16:01:53 - https://www.google.com.br - online: true
+13/11/2017 16:01:54 - https://www.remessaonline.com.br - online: true
+13/11/2017 16:01:59 - https://www.alura.com.br - online: true
+13/11/2017 16:01:59 - https://www.google.com.br - online: true
+13/11/2017 16:01:59 - https://www.remessaonline.com.br - online: true
+13/11/2017 16:02:04 - https://www.alura.com.br - online: true
+13/11/2017 16:02:04 - https://www.google.com.br - online: true
+13/11/2017 16:02:04 - https://www.remessaonline.com.br - online: true
+13/11/2017 16:02:10 - https://www.alura.com.br - online: true
+13/11/2017 16:02:10 - https://www.google.com.br - online: true
+13/11/2017 16:02:10 - https://www.remessaonline.com.br - online: true
+13/11/2017 16:02:15 - https://www.alura.com.br - online: true
+13/11/2017 16:02:15 - https://www.google.com.br - online: true
+13/11/2017 16:02:15 - https://www.remessaonline.com.br - online: true
