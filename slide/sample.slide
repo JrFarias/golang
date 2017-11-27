@@ -1,0 +1,133 @@
+Golang
+Herança e Concorrencia
+15:04 27 Nov 2017
+Tags: foo, bar, baz
+
+Junior Farias
+Software Developer, Beetech
+junioralberto19@gmail.com
+
+
+* Herança, Interface e Polimorfismo
+
+Go não tem suporte à orientação a objetos típica das outras linguagens como Java ou C++. Não existem classes, apenas structs e interfaces.
+
+- O que é uma structs ??
+
+    type T struct {
+        name string  `nome e tipo do objeto`
+        value int 
+    }
+
+- O que é uma interface
+
+    type Dumper interface {
+        Dump()
+    }
+
+* Herança, Interface e Polimorfismo
+
+    type Creature struct {
+        Name string
+        Real bool
+    }
+
+    func Dump(c *Creature) {
+        fmt.Printf("Name: '%s', Real: %t\n", c.Name, c.Real)
+    }
+
+    func (c Creature) Dump() {
+        fmt.Printf("Name: '%s', Real: %t\n", c.Name, c.Real)
+    }
+
+    type FlyingCreature struct {
+        Creature
+        WingSpan int
+    }
+
+* Continuação...
+
+    func (fc FlyingCreature) Dump() {
+        fmt.Printf("Name: '%s', Real: %t, WingSpan: %d\n",
+            fc.Name,
+            fc.Real,
+            fc.WingSpan)
+    }
+
+    type Dumper interface {
+        Dump()
+    }
+
+* Goroutines
+.image Go-routines-gopher.jpg
+
+* Goroutines
+
+Goroutines são extremamente econômicas quando comparados as threads.
+
+Eles são apenas alguns *kb* no tamanho da _stack_ e a _stack_ *podem* *crescer* *e* *encolher* *de* *acordo* *com* *as* *necessidades* *da* *aplicação*, enquanto que no caso de threads, o tamanho da pilha precisa ser especificado e fixo.
+
+As Goroutines divididas para um menor numero de _OS_ _thread_. Pode haver *apenas* *uma* _thread_ em um programa com *milhares* de Goroutines.
+
+Se qualquer Goroutine nessas _Threads_ precisa espera a entrada do usuário, então é *criado* *outro* _OS_ _thread_ e os restantes *Goroutines* *são* *movidos* para o *novo* _OS_ _thread_.
+
+* Goroutines
+- Como inicializar uma Goroutine ?
+
+.play -numbers main.go
+.link https://play.golang.org/p/zC78_fc1Hn Run program in playground
+
+* Goroutines
+
+.play -numbers correct.go
+.link https://play.golang.org/p/U9ZZuSql8- Run program in playground
+
+* Goroutines
+
+.play -numbers multi.go
+
+* Goroutines
+
+.link https://play.golang.org/p/oltn5nw0w3 Run program in playground
+.image Goroutines-explained.png 400 1000
+
+* Canais
+.image gophereartrumpet.jpg 350 700
+ 
+Os canais podem ser pensados ​​como *tubulações* usando o que as Goroutines se comunicam.
+Semelhante à forma como a água flui de uma extremidade para outra em um tubo, *os* *dados* *podem* *ser* *enviados* *de* *uma* *extremidade* *e* *recebidos* *em* *outra* *extremidade* usando canais.
+
+* Canais
+
+*Cada* canal tem um *tipo* associado a ele. Este tipo é o tipo de dados que o canal *pode* *transportar*. *Nenhum* *outro* *tipo* *pode* *ser* *transportado* *usando* *o* *canal*.
+
+ chan T é um canal de tipo T
+
+declaração de um canal
+
+ done := make(chan bool)
+
+* Canais
+
+*Envios* *e* *recebimentos* *estão* *bloqueando* *por* *padrão*
+
+O que isto significa?
+
+Quando um dado é *enviado* para um canal, *o* *controle* *é* *bloqueado* *na* *instrução* *de* *envio* até que algumas outras lições de goroutina sejam lidas desse canal.
+
+Da mesma forma, quando os dados são lidos a partir de um canal, *a* *leitura* *é* *bloqueada* até que alguns Goroutine *escrevam* *dados* *para* *esse* *canal*.
+
+* Canais
+
+.play -numbers channel.go
+
+* Canais
+
+.play -numbers channel-2.go
+
+* Links interessantes
+
+- Tutorial basico da linguagem: 
+.link https://golangbot.com/ Golangbot
+
+
